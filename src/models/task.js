@@ -4,11 +4,10 @@ const Schema = mongoose.Schema;
 const taskSchema = new mongoose.Schema({
     name: String,
     objetivo: String,
-    duración: String,
+    duracion: String,
     estado: String,
-    user: JSON,
+    userId: { type: Schema.Types.ObjectId, ref: 'User', required: true }
   });
-
   const taskModel = mongoose.model("Task", taskSchema);
 
   module.exports = taskModel;
